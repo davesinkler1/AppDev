@@ -24,3 +24,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/home/addutility', 'App\Http\Controllers\HomeController@addutility')->name('home.addutility');
+Route::post('/home/storeutility', 'App\Http\Controllers\UtilityController@store')->name('storeutility');
