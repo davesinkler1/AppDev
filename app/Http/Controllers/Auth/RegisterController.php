@@ -63,7 +63,6 @@ class RegisterController extends Controller
                     ->mixedCase()
                     ->numbers()
                     ->symbols()
-                    ->uncompromised()
 
             ],
         ]);
@@ -77,11 +76,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'phone_number' => $data['phone_number'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $user->attachRole('user');
+
+        return $user;
     }
 }
