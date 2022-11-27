@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,9 @@ Route::post('/home/storeutility', 'App\Http\Controllers\UtilityController@store'
 Route::get('/gendash', function() {
     return view('gendash');
 });
+Route::get('/profile', function() {
+    return view('profile');
+});
+
+Route::get('/upload', [ProfileController::class, 'create']);
+Route::post('/upload',[ProfileController::class, 'store']);
