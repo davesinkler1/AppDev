@@ -9,5 +9,5 @@ class Utility extends Model
 {
     use HasFactory;
     protected $table = 'utility';
-    protected $fillable = ['brand','name','type','area', 'price','imagename','imagepath'];
+    protected $fillable = ['brand','name','type','area', 'price','photo'];
 }

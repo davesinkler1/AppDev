@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UtilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +21,17 @@ Route::get('/', function () {
 
 Auth::routes(['verify'=>true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')
-        ->middleware(['auth', 'verified']);
+Route::group(['middleware' => ['auth']], function(){
+    Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+});
 
-//Auth::routes();
-
-Route::get('/home/addutility', 'App\Http\Controllers\HomeController@addutility')->name('home.addutility');
-Route::post('/home/storeutility', 'App\Http\Controllers\UtilityController@store')->name('storeutility');
 Route::get('/gendash', function() {
     return view('gendash');
 });
+
+
+Route::resource('/utility', UtilController::class);
+Route::post('/confirm', 'App\Http\Controllers\UtilController@confirm')->name('confirm');
+Route::get('/edit{id}', [UtilController::class, 'edit']);
+Route::post('/utilUpdate{id}', [UtilController::class, 'update']);
+Route::get('/delete{id}', [UtilController::class, 'delete']);

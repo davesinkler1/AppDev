@@ -21,8 +21,7 @@ return new class extends Migration
             $table->string('type');
             $table->string('area');
             $table->string('price');
-            $table->string('imagename');
-            $table->string('imagepath');
+            $table->string('photo');
             $table->boolean('isRent')->default(false);
             $table->foreignId('cust_id')->nullable()->references('id')->on('users');
             $table->foreignId('owner_id')->nullable()->references('id')->on('users');
