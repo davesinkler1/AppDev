@@ -24,9 +24,6 @@ Auth::routes(['verify'=>true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')
         ->middleware(['auth', 'verified']);
         
-Route::group(['middleware' => ['auth']], function(){
-    Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
-});
 
 Route::get('/gendash', function() {
     return view('gendash');
