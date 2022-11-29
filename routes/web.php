@@ -1,7 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,22 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')
+        ->middleware(['auth', 'verified']);
+        
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/home/addutility', 'App\Http\Controllers\HomeController@addutility')->name('home.addutility');
-Route::post('/home/storeutility', 'App\Http\Controllers\UtilityController@store')->name('storeutility');
 Route::get('/gendash', function() {
     return view('gendash');
 });
 Route::get('/profile', function() {
     return view('profile');
 });
-
-Route::get('/upload', [ProfileController::class, 'create']);
-Route::post('/upload',[ProfileController::class, 'store']);

@@ -38,7 +38,8 @@
                                         <td>
                                             <img src="{{ asset($util->photo) }}" width= '50' height='50' class="img img-responsive" />
                                         </td>
-                                        <td><a href="" class="btn btn-sm btn-success">Edit</td>
+                                        <td><a href="{{ url('/edit'.$util->id) }}" class="btn btn-sm btn-success">Edit</td>
+                                        <td><a href="{{ url('/delete'.$util->id) }}" class="btn btn-sm btn-danger">Delete</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

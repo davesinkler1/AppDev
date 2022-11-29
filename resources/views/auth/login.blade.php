@@ -39,6 +39,27 @@
                             </div>
                         </div>
 
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input type="checkbox" onclick="myFunction()">Show Password
+
+                                        <script>
+                                        function myFunction() {
+                                        var x = document.getElementById("password");
+                                        if (x.type === "password") {
+                                            x.type = "text";
+                                        } else {
+                                            x.type = "password";
+                                        }
+                                        }
+                                        </script>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
