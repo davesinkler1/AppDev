@@ -32,13 +32,7 @@
   </div>
   <form action="/upload" method="POST" enctype="multipart/form-data">
   @csrf
-  <!--@foreach($photos as $photo)-->
-  <!--@if ( asset('/storage/app/public/images/profile/', $photo -> name) )-->
-  <!--img src="{ asset('/storage/app/public/images/profile/', $photo -> name) }" id="profile-pic" class="object-cover w-24 h-24 float-left mr-5"-->
- <!--@else-->
-  <img src="https://th.bing.com/th/id/OIP.eCrcK2BiqwBGE1naWwK3UwHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.1&pid=1.7" id="profile-pic" class="object-cover w-24 h-24 float-left mr-5">
- <!--@endif-->
- <!--@endforeach-->
+ <input type="file" name="picture" id="my-file">
 <input type="submit" name="Upload">
 </form>
 <br>

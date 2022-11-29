@@ -26,12 +26,12 @@ class ProfileController extends Controller
     return view('/upload');
   }
 
-  public function show() {
+  /*public function show() {
     $get = DB::table('select name from profiles');
     //$get = Profile::all();
     //$get = DB::table('profiles')->find(1);
     //$get = $get->get();
 
     return view('profile', ['photos' => $get]);
- }
+ }*/
 }
