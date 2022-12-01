@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,6 @@ Route::get('/gendash', function() {
 Route::get('/profile', function() {
     return view('profile');
 });
+
+Route::get('/profile', [ProfileController::class, 'createImage']);
+Route::post('/profile', [ProfileController::class, 'update_profile']);

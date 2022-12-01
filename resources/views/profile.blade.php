@@ -22,15 +22,15 @@
 
     <div class="relative bg-white">
       <div class="w-60 h-60 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
-<!--svg xmlns="http://www.w3.org/2000/svg" viewBox="-91 -170 200 200" height="-1" width="1394">
-  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-</svg-->
  <div class="justify-center flex text-center shadow-sm max-w-xs m-auto">
-  <img src="https://th.bing.com/th/id/OIP.eCrcK2BiqwBGE1naWwK3UwHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.1&pid=1.7" id="profile-pic" class="object-cover w-24 h-24 float-left mr-5">
+  @foreach ($photos as $photo)
+  <li>{{$photo -> name}}</li>
+  <img src="{{asset('public/images/profile/'. $photo -> name)}}" id="imageName" class="object-cover w-24 h-24 float-left mr-5">
+  @endforeach
 </div>
   </div>
   </div>
-  <form action="/upload" method="POST" enctype="multipart/form-data">
+  <form action="/profile" method="post" enctype="multipart/form-data">
   @csrf
  <input type="file" name="picture" id="my-file">
 <input type="submit" name="Upload">
@@ -72,7 +72,7 @@
     var reader = new FileReader();
     reader.onload = function(e) {
     	// e.target.result is a base64-encoded url that contains the image data
-      document.getElementById('profile-pic').setAttribute('src', e.target.result);
+      document.getElementById('imageName').setAttribute('src', e.target.result);
     };
     reader.readAsDataURL(this.files[0]);
   }
@@ -80,5 +80,3 @@
 </script>
 
 </html>
-
-<?php

@@ -7,8 +7,7 @@ use App\Models\Profile;
 
 class ProfileController extends Controller
 {
- 
-  public function store(Request $request)
+public function update_profile(Request $request)
   {
     $name = $request->file('picture')->getClientOriginalName();
     $size = $request->file('picture')->getSize();
@@ -18,20 +17,10 @@ class ProfileController extends Controller
     $photo->size = $size;
     $photo->save();
     return redirect() -> back();
-    //dd($request);
   }
 
-  public function create() {
-    //$photo = Profile::all();
-    return view('/upload');
+public function createImage() {
+    $photos = Profile::all();
+    return view('/profile', ['photos' => $photos]);
   }
-
-  /*public function show() {
-    $get = DB::table('select name from profiles');
-    //$get = Profile::all();
-    //$get = DB::table('profiles')->find(1);
-    //$get = $get->get();
-
-    return view('profile', ['photos' => $get]);
- }*/
 }
