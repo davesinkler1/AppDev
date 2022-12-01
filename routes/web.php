@@ -27,7 +27,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //route for utility
 Route::resource('/utility', UtilController::class);
-Route::post('/confirm', 'App\Http\Controllers\UtilController@confirm')->name('confirm');
+Route::get('/confirm', 'App\Http\Controllers\UtilController@confirm')->name('confirm');
 Route::get('/edit{id}', [UtilController::class, 'edit']);
 Route::post('/utilUpdate{id}', [UtilController::class, 'update']);
 Route::delete('/delete{id}', [UtilController::class, 'delete']);
