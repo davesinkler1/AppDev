@@ -30,10 +30,12 @@
                             </table>
                         </div><br>
 
-<form action='/confirm' method="POST">
-       @csrf
-       <button class="btn btn-success btn-sm" type="submit">Confirm Submission</button>
-    </form>
+    <div class="inline-block">
+        <a href="{{ url('/confirm') }}" class="btn btn-sm btn-success">Confirm</a>
+        <a href="{{ url('/edit'.$utility->id) }}" class="btn btn-sm btn-success">Edit</a>
+        <a href="{{ url('/cancel'.$utility->id) }}" class="btn btn-sm btn-danger">Cancel</a>
+    </div>
+
 </div>
 
 @endsection

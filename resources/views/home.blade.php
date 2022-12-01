@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<a href='\home\addutility' class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded" type="button">
-         Add Utility
+<a href='\utility' class="bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded" type="button">
+         Manage Utility
 </a>
     <div class="row justify-content-center">
         <div class="col-md-8">
