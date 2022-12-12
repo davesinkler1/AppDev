@@ -33,6 +33,7 @@ Route::get('/edit{id}', [UtilController::class, 'edit']);
 Route::post('/utilUpdate{id}', [UtilController::class, 'update']);
 Route::delete('/delete{id}', [UtilController::class, 'delete']);
 Route::get('/cancel{id}', [UtilController::class, 'delete']);
+Route::get('utilities', [ProductController::class, 'utilityList'])->name('utility.list');
         
 
 Route::get('/gendash', function() {

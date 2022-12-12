@@ -28,7 +28,7 @@ class HomeController extends Controller
             return view('home');
 
         }elseif(Auth::user()->hasRole('administrator')){
-            return view('adminhome');
+            return view('admin\adminhome');
         }
     }
 

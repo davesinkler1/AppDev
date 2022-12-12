@@ -16,7 +16,7 @@ class UtilController extends Controller
     public function index()
     {
         $utility = Utility::all();
-        return view ('utilityindex')->with('utility', $utility);
+        return view ('admin\utilityindex')->with('utility', $utility);
     }
 
 
@@ -27,7 +27,7 @@ class UtilController extends Controller
      */
     public function create()
     {
-        return view('addutility');
+        return view('user\addutility');
     }
 
     /**
@@ -43,7 +43,7 @@ class UtilController extends Controller
         $path = $request->file('photo')->storeAs('images', $fileName, 'public');
         $requestData["photo"] = '/storage/'.$path;
         $utility = Utility::create($requestData);
-        return view('utilityoverview', ['utility'=> $utility]);
+        return view('user\utilityoverview', ['utility'=> $utility]);
     }
 
     public function confirm()
@@ -111,5 +111,12 @@ class UtilController extends Controller
     {
         Utility::where('id', $id)->delete();
         return redirect('utility')->with('flash_message', 'Utility Deleted!');
+    }
+
+    public function utilityList()
+    {
+        $utilities = Utility::all();
+
+        return view('utilities', compact('utilities'));
     }
 }
