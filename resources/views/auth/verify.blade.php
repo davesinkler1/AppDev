@@ -2,10 +2,11 @@
 
 @section('content')
 <div class="container">
+    
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
+                <div class="card-header"><b>{{ __('Email Verification') }}</b></div>
 
                 <div class="card-body">
                     @if (session('resent'))
@@ -14,8 +15,9 @@
                         </div>
                     @endif
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
+                    {{ __("We're happy you signed up for RentalIT. To start exploring the RentalIT App") }}<br><br>
+                    {{ __("please confirm your email address.") }}
+                    <br><br><br>{{ __('If you did not receive the email') }},
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
@@ -24,5 +26,9 @@
             </div>
         </div>
     </div>
+</div>
+
+<div>
+
 </div>
 @endsection
