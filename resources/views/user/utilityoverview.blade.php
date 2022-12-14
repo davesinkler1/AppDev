@@ -21,7 +21,7 @@
                                         <td>{{ $utility->area }}</td>
                                         <td>{{ $utility->price }}</td>
                                         <td>
-                                            <img src="{{ asset($utility->photo) }}" width= '50' height='50' class="img img-responsive" />
+                                            <img src="{{ asset($utility->photo) }}" width= '100' height='100' class="img img-responsive" />
  
  
                                         </td>
