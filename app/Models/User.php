@@ -8,10 +8,11 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Laratrust\Traits\LaratrustUserTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable, LaratrustUserTrait;
+    use HasApiTokens, HasFactory, Notifiable, LaratrustUserTrait, TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.

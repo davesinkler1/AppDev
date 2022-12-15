@@ -47,13 +47,45 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
+                    @if (session('status') == "two-factor-authentication-disabled")
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            Two factor Authentication has been disabled !!
                         </div>
                     @endif
 
-                    {{ __('You are logged in as user') }}
+                    @if (session('status') == "two-factor-authentication-enabled")
+                        <div class="alert alert-success" role="alert">
+                            Two factor Authentication has been enabled.
+                        </div>
+                    @endif
+
+                    {{ __('You are logged in as USER') }}
+
+                    <br><br>
+
+                    <form method="POST" action="/user/two-factor-authentication">
+                        @csrf
+
+                        @if (auth()->user()->two_factor_secret)
+                            @method('DELETE')
+                            
+                            <div>
+                              {!! request()->user()->twoFactorQrCodeSvg(); !!}
+                            </div>
+                            
+                              <br><br>
+
+                            <button class="bg-red text-white font-bold py-2 px-4 rounded">
+                              Disable 2FA
+                            </button>
+                          
+                        @else
+                            <button class="bg-blue text-white font-bold py-2 px-4 rounded">
+                              Enable 2FA
+                            </button>
+                          
+                        @endif
+                    </form>
                 </div>
             </div>
         </div>
